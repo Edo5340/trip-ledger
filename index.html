@@ -1,43 +1,66 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trip Profit Calculator</title>
-  <style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trip Profit Calculator</title>
+    <style></style>
+  </head>
+  <body>
+    <article class="trip-profit-calculator">
+      <label for="earnings-inp">Earnings Dollars: </label>
+      <input type="number" id="earnings-inp" />
+      <label for="fee-inp">Fee % : </label>
+      <input type="number" id="fee-inp" />
+      <label for="fuel-inp">Fuel Dollars: </label>
+      <input type="number" id="fuel-inp" />
+      <button id="calculate-btn">Calculate Profit</button>
+      <p id="fee-dollars-disp"></p>
+      <p id="net-disp"></p>
+      <p id="profit-percent-disp"></p>
+      <p id="trip-count-disp"></p>
+      <p id="total-net-disp"></p>
+      <p id="message-disp"></p>
+    </article>
 
-  </style>
-</head>
-<body>
-  <article class="trip-profit-calculator">
-    <label for="earnings-inp">Earnings Dollars: </label>
-    <input type="number" id="earnings-inp">
-    <label for="fee-inp">Fee % : </label>
-    <input type="number" id="fee-inp">
-    <label for="fuel-inp">Fuel Dollars: </label>
-    <input type="number" id="fuel-inp">
-    <button id="calculate-btn">Calculate Profit</button>
-    <p id="fee-dollars-disp"></p>
-    <p id="net-disp"></p>
-    <p id="profit-percent-disp"></p>
-    <p id="trip-count-disp"></p>
-    <p id="total-net-disp"></p>
-    <p id="message-disp"></p>
-  </article>
+    <script>
+      const earningsInput = document.getElementById("earnings-inp");
+      const feePercentInput = document.getElementById("fee-inp");
+      const fuelInput = document.getElementById("fuel-inp");
+      const calcButton = document.getElementById("calculate-btn");
+      const feeDollarsDisplay = document.getElementById("fee-dollars-disp");
+      const netProfitDisplay = document.getElementById("net-disp");
+      const profitMarginDisplay = document.getElementById(
+        "profit-percent-disp",
+      );
+      const tripCountDisplay = document.getElementById("trip-count-disp");
+      const totalNetProfitDisplay = document.getElementById("total-net-disp");
+      const validationMessage = document.getElementById("message-disp");
+      let tripCountNum = 0;
+      let totalNetProfitNum = 0;
 
-  <script>
-    const earningsInput = document.getElementById('earnings-inp');
-    const feePercentInput = document.getElementById('fee-inp');
-    const fuelInput = document.getElementById('fuel-inp');
-    const calcButton = document.getElementById('calculate-btn');
-    const feeDollarsDisplay = document.getElementById('fee-dollars-disp');
-    const netProfitDisplay = document.getElementById('net-disp');
-    const profitMarginDisplay = document.getElementById('profit-percent-disp');
-    const tripCountDisplay = document.getElementById('trip-count-disp');
-    const totalNetProfitDisplay = document.getElementById('total-net-disp');
-    const validationMessage = document.getElementById('message-disp');
-    let tripCountNum = 0;
-    let totalNetProfitNum = 0;
-  </script>
-</body>
+      calcButton.addEventListener("click", function () {
+        const earningsConvNum = Number(earningsInput.value);
+        const feePercentConvNum = Number(feePercentInput.value);
+        const fuelConvNum = Number(fuelInput.value);
+        // earnings: valid = 1 or more | raw check: none (empty -> 0, caught by < 1) | number check: < 1 || isNaN(earningsConvNum)
+
+        // fee: valid = 0.01 or more | raw check: none (empty -> 0, caught by < 0.01) | number check: < 0.01 || isNaN(feePercentConvNum)
+
+        // fuel: valid = 0 or more | raw check: === '' | number check: < 0 || isNaN(fuelConvNum)
+
+        if (
+          earningsConvNum < 1 ||
+          isNaN(earningsConvNum) ||
+          feePercentConvNum < 0.01 ||
+          isNaN(feePercentConvNum) ||
+          fuelInput.value === "" ||
+          fuelConvNum < 0 ||
+          isNaN(fuelConvNum)
+        ) {
+        } else {
+        }
+      });
+    </script>
+  </body>
 </html>
