@@ -58,6 +58,10 @@
           fuelConvNum < 0 ||
           isNaN(fuelConvNum)
         ) {
+          feeDollarsDisplay.textContent = '';
+          netProfitDisplay.textContent = '';
+          profitMarginDisplay.textContent = '';
+          validationMessage.textContent = 'Please enter a valid number!';
         } else {
         }
       });
