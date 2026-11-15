@@ -63,6 +63,11 @@
           profitMarginDisplay.textContent = '';
           validationMessage.textContent = 'Please enter a valid number!';
         } else {
+         const feeDollarsCalc = earningsConvNum / 100 * feePercentConvNum;
+         const netProfitCalc = earningsConvNum - (fuelConvNum + feeDollarsCalc);
+         const profitMarginCalc = (netProfitCalc / earningsConvNum) * 100;
+          totalNetProfitNum += netProfitCalc;
+          tripCountNum ++;
         }
       });
     </script>
