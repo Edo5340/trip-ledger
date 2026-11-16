@@ -68,6 +68,12 @@
          const profitMarginCalc = (netProfitCalc / earningsConvNum) * 100;
           totalNetProfitNum += netProfitCalc;
           tripCountNum ++;
+          feeDollarsDisplay.textContent = `Turo fees: $${feeDollarsCalc.toFixed(2)}`;
+          netProfitDisplay.textContent = `Net profit: $${netProfitCalc.toFixed(2)}`;
+          profitMarginDisplay.textContent = `Profit margin: ${profitMarginCalc.toFixed(1)}%`;
+          tripCountDisplay.textContent = `Trip count: ${tripCountNum}`;
+          totalNetProfitDisplay.textContent = `Total net profit: $${totalNetProfitNum.toFixed(2)}`;
+          validationMessage.textContent = '';
         }
       });
     </script>
